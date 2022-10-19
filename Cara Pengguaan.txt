@@ -1,0 +1,34 @@
+     _____________  _____     __     _  __     __  ___     __
+     _____________ _______    __     _  __     __  ___ _   __
+          |||     _________   __ ___ _  __     __  ___   _ __
+          |||    ____   ____  __     _  __     __  ___     __
+          |||   ____     ____ __     _   -- _ --   ___     __
+
+
+@ 2022 oleh rrtkye
+
+Aplikasi OSIS 
+SMK BAGIMU NEGERIKU
+
+ada 3 role :
+admin 
+cara login: 
+username: admin
+password: admin
+
+dan admin akan membuat kelas yang berada di fitur jurusan dengan menambahkan kelas disana
+role bertambah menjadi OPERATOR 
+
+dan fungsi operator untuk menambahkan daftar siswa sebagai pemilih kandidat nantinya
+
+dan setelah itu operator bisa menginputkan data siswa dengan import excel ketentuan bisa didownload 
+pada aplikasi 
+
+setelah itu role terakhir ada User nanti setelah operator menginput data siswanya 
+para siswa/pemilih bisa menggunakan nomor NIM dimasukkan dalam kolom username dan password pada form 
+login dan otomatis user akan masuk dan memilih,
+user hanya bisa memilih sekali saja.
+
+sekian Penjelasan aplikasi ini semoga bisa dipakai untuk keperluan sekolah dan sebagainya.
+
+versi Aplikasi CODEIGNITER 3.1.9 

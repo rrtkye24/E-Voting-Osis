@@ -26,7 +26,7 @@
         <?php else: ?>
         <div class="row">
             <?php foreach($daftar_calon as $key => $dc): ?>
-            <div class="col-md-4 mb-4">
+            <div class="col-md-5 mb-4 ml-4">
                 <div class="card" style="width: 18rem;">
                     <img src="<?=base_url('uploads/image/');?><?=$dc['gambar'];?>" class="card-img-top" alt="Foto Calon"
                         width="100%" height="150">

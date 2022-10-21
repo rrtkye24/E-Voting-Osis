@@ -7,8 +7,6 @@ class User_m extends CI_Model {
     private $table = 'tb_admin';
 
     private $id = 'id_admin';
-
-    
     public function cekAdmin($username){
         return $this->db->get_where($this->table,['username'=>$username])->row_array();
     }

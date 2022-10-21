@@ -108,12 +108,14 @@
                     <span>Pemilihan</span></a>
             </li>
             <?php endif; ?>
+            <?php if($this->session->userdata('level')=='administrator'): ?>
             <!-- Nav Item - Hasil Perolehan Suara -->
             <li class="nav-item <?=isset($mHasil)?'active':'';?>">
                 <a class="nav-link" href="<?=base_url('hasil');?>">
                     <i class="fas fa-fw fa-chart-pie"></i>
                     <span>Hasil Perolehan Suara</span></a>
             </li>
+            <?php endif; ?>
             <?php if($this->session->userdata('level')=='administrator'): ?>
             <!-- Nav Item - Grafik Perolehan Suara -->
             <li class="nav-item <?=isset($mGrafik)?'active':'';?>">
@@ -311,7 +313,7 @@
             }
         });
     })
-
+    
     function chartBar(data) {
         Morris.Bar({
             element: 'graph',

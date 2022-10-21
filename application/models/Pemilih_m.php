@@ -20,9 +20,14 @@ class Pemilih_m extends CI_Model {
     public function getDataById($id){
         return $this->db->get_where($this->table,[$this->id=>$id])->row_array();
     }
-    
     public function getByFakultas($id_fakultas){
         return $this->db->get_where($this->table,['id_fakultas'=>$id_fakultas])->result_array();
+    }
+    public function getFakultas($id_fakultas){
+        return $this->db
+        ->join()
+        ->join('tb_hasil_suara b','a.id_pemilih=b.id_pemilih','left')
+        ->get_where($this->table.' a',['id_fakultas'=>$id_fakultas])->result_array();
     }
     // public function getAll(){ 
     //     return $this->db

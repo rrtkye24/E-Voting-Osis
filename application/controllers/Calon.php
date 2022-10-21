@@ -38,6 +38,14 @@ class Calon extends CI_Controller {
         $data['content'] = 'detail_calon';  
         $this->load->view('index',$data);
     }
+    public function detailbelum($id)
+    {
+        $data['mCalon'] = true;
+        $data['calon'] = $this->calon_m->getDataById($id);
+        $data['suara_calon'] = $this->hasil_m->getDataById($id);
+        $data['content'] = 'detail_calon';  
+        $this->load->view('index',$data);
+    }
 
     public function tambah_calon()
     {

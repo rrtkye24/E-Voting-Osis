@@ -11,6 +11,9 @@ class Welcome extends CI_Controller {
 			redirect('login');
 		}
 		$this->load->model('user_m');
+		$this->load->model('pemilih_m');
+		$this->load->model('hasil_m');
+		$this->load->model('fakultas_m');
 	}
 	
 	public function index()
@@ -22,10 +25,19 @@ class Welcome extends CI_Controller {
 			'sudah_pilih'=>$this->user_m->getCount('tb_hasil_suara'),
 			'belum_pilih'=>$this->user_m->getCount('tb_pemilih') - $this->user_m->getCount('tb_hasil_suara'),
 		];
+		$data['belom_milih'] = $this->hasil_m->getBelumMilih();
 		$data['config'] = $this->user_m->getConfig();
+        $data['fakultas'] = $this->fakultas_m->getJurusan();
 		$data['content'] = 'dashboard';
 		$this->load->view('index',$data);
 	}
+	public function pilih()
+    {
+        $data['mPemilih'] = true;
+        $data['pemilih'] = $this->pemilih_m->getByFakultas($this->input->post('fakultas',true));
+        $data['fakultas'] = $this->hasil_m->getJurusan();
+        $this->load->view('welcome/#exampleModal',$data);
+    }
 
 	public function ubah_password(){
 		if($this->session->userdata('level')=='user'){

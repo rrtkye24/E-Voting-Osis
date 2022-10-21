@@ -47,7 +47,7 @@
                 <thead>
                     <tr>
                         <th width="25">No</th>
-                        <th>NIK</th>
+                        <th>NIS</th>
                         <th>Nama</th>
                         <th>Email</th>
                     </tr>
@@ -83,7 +83,6 @@
             </span>
             <span class="text">Import</span>
         </a>
-       
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -91,7 +90,7 @@
                 <thead>
                     <tr>
                         <th width="25">No</th>
-                        <th>NIM</th>
+                        <th>NIS</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th width="325">Aksi</th>
@@ -101,10 +100,11 @@
                     <?php $n=1; foreach($pemilihbyfakultas as $pf): ?>
                     <tr>
                         <td><?= $n++; ?></td>
-                        <td><?= $pf['nim']; ?></td>
+                        <td id="copyNim"><?= $pf['nim']; ?></td>
                         <td><?= $pf['nama']; ?></td>
                         <td><?= $pf['email']; ?></td>
                         <td>
+                          <?php if($this->session->userdata('level')=='administrator'): ?>
                             <a href="<?=base_url('pemilih/ubah/');?><?=$pf['id_pemilih'];?>"
                                 class="btn btn-info btn-sm mb-1"><i class="fas fa-edit"></i> Ubah</a>
                             <a href="<?=base_url('pemilih/reset/');?><?=$pf['id_pemilih'];?>"
@@ -115,6 +115,11 @@
                                 class="btn btn-danger btn-sm mb-1"
                                 onclick="return confirm('Anda yakin ingin menghapus data ini ?')"><i
                                     class="fas fa-trash"></i> Hapus</a>
+                          <?php endif; ?>
+                          <button
+                            class="btn btn-warning btn-sm mb-1"
+                            onclick="return copyToClipboard('<?= $pf['nim']; ?>');"><i
+                            class="fas fa-copy"></i> Copy</button>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -123,6 +128,16 @@
         </div>
     </div>
 </div>
+<script>
+  function copyToClipboard(element) {
+  var $temp = $("<textarea>");
+  $("body").append($temp);
+  $temp.val(element).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+
+</script>
 
 
 <!-- Modal Import -->
@@ -161,4 +176,5 @@
         </div>
     </div>
 </div>
+
 <?php endif; ?>

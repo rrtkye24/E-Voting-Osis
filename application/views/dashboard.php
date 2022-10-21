@@ -6,13 +6,13 @@
     <a href="<?=base_url('pemilihan/aktifkan');?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-stopwatch fa-sm text-white-50"></i> Aktifkan Pemilihan</a>
     <?php elseif ($config['status']=='aktif' && $this->session->userdata('level')=='administrator'): ?>
-       
-  Pemilihan sedang berlangsung
-  <a href="<?=base_url('pemilihan/nonaktif');?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+
+    Pemilihan sedang berlangsung
+    <a href="<?=base_url('pemilihan/nonaktif');?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-stopwatch fa-sm text-white-50"></i> Ulang & NonAktifkan Pemilihan</a>
-</button>
+    </button>
     <?php endif; ?>
-   
+
 </div>
 <?php if($this->session->flashdata('berhasil')): ?>
 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -88,7 +88,81 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Total Belum Memilih</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $dashboard['belum_pilih']; ?></div>
+                        <div class="mb-0 ">
+                            <a href="/welcome/#exampleModal" class=" h5 font-weight-bold text-gray-800 cursor-pointer"
+                                data-toggle="modal" data-target="#exampleModal">
+                                <?= $dashboard['belum_pilih']; ?>
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Daftar Belum Memilih</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <table class="table table-light">
+                                                <thead>
+                                                    <tr>
+                                                        <!-- <th colspan="2"> -->
+                                                            <!-- <form action="<?=base_url('welcome/pilih');?>"
+                                                                method="post">
+
+                                                                <div class="input-group">
+                                                                    <select class="custom-select text-uppercase"
+                                                                        id="inputGroupSelect02" name="fakultas">
+                                                                        <option selected>Pilih <Kelas></Kelas>
+                                                                        </option>
+                                                                        <?php foreach($fakultas as $f): ?>
+                                                                        <option value="<?= $f['nama_fakultas']; ?>">
+                                                                            <?= $f['nama_fakultas']; ?>
+                                                                        </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                    <div class="input-group-append">
+                                                                        <a href="<?=base_url('welcome/pilih/#exampleModal');?>"
+                                                                            class="btn btn-info">Info</a>
+                                                                    </div>
+                                                                </div>
+                                                            </form> -->
+                                                            
+                                                        <!-- </th>  -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    foreach($belom_milih as $u) :
+                                                    ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?php echo ucwords($u['nama']); ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $u['email']; ?>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                    endforeach
+                                                     ?>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Tutup</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -110,16 +184,19 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary float-left">Panduan Memilih Pasangan Calon</h6>
-                <h6 class="m-0 font-weight-bold text-primary float-right">Batas Waktu : <?= date('d-m-Y H:i:s',$config['akhir_pemilihan']); ?></h6>
+                <h6 class="m-0 font-weight-bold text-primary float-right">Batas Waktu :
+                    <?= date('d-m-Y H:i:s',$config['akhir_pemilihan']); ?></h6>
             </div>
             <div class="card-body">
-                <p>Berikut ini langkah-langkah yang harus anda lalui untuk memilih pasangan calon favorit anda :</p>
+                <p>Berikut ini langkah-langkah yang harus anda lalui untuk memilih pasangan calon Ketua dan Wakil OSIS :</p>
                 <ol>
                     <li>Anda telah melewati langkah pertama yaitu login pada sistem</li>
                     <li>Langkah selanjut klik menu <b>Pemilihan</b></li>
-                    <li>Setelah itu klik tombol <b>Pilih</b> yang ada di pasangan calon favorit anda</li>
+                    <li>Setelah itu klik tombol <b>Pilih</b> yang ada di pasangan calon Ketua dan Wakil OSIS anda</li>
                     <li>Langka terakhir silahkan klik <b>Ok</b></li>
-                    <li>Selamat anda telah memilih pasangan favorit anda</li>
+                    <li>Selamat anda telah memilih pasangan Ketua dan Wakil Ketua OSIS</li>
+                    <li><b>Pemilihan setiap Akun hanya bisa dilakukan sekali </b></li>
+                    <li><b>Setalah selesai bisa logout </b></li>
                 </ol>
             </div>
         </div>

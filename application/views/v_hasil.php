@@ -4,6 +4,9 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-body">
+    <a href="<?=base_url('hasil/export');?>" class="btn btn-success btn-icon-split btn-sm">
+            <span class="text">Export Excel Data Pemilih</span>
+        </a>
         <div class="row">
             <?php foreach($daftar_calon as $key => $dc): ?>
             <div class="col-md-5 mb-2">

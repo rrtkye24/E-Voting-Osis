@@ -15,7 +15,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-6">
-                <h4>Calon Presma</h4>
+                <h4>Calon Ketua Osis</h4>
                 <table>
                     <tr>
                         <td>Nomor Induk Mahasiswa</td>
@@ -35,7 +35,7 @@
                 </table>
             </div>
             <div class="col-md-6">
-                <h4>Calon Wakil Presma</h4>
+                <h4>Calon Wakil Ketua Osis</h4>
                 <table>
                     <tr>
                         <td>Nomor Induk Mahasiswa</td>
@@ -48,7 +48,7 @@
                         <td><?= $calon['calon_wakil_presma']; ?></td>
                     </tr>
                     <tr>
-                        <td>Fakultas</td>
+                        <td>Kelas</td>
                         <td>:</td>
                         <td><?= $calon['fakultas_calon_wapresma']; ?></td>
                     </tr>

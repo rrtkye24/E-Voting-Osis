@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2022 at 05:28 AM
+-- Generation Time: Oct 21, 2022 at 10:32 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -86,14 +86,6 @@ CREATE TABLE `tb_calon` (
   `video` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tb_calon`
---
-
-INSERT INTO `tb_calon` (`id_calon`, `fakultas_calon_presma`, `fakultas_calon_wapresma`, `nim_calon_presma`, `nim_calon_wapresma`, `calon_presma`, `calon_wakil_presma`, `visi_misi`, `gambar`, `video`) VALUES
-(1, 'xii rekayasa perangkat lunak', 'xi tata boga', '1011335', '1011340', 'Claribel Agnes Dei Beatrice', 'Margaretha Teja Kusuma', 'Mendisiplinkan siswa ', '4122029a3280ff201e51e65c5f09e774.jpg', ''),
-(2, 'xii rekayasa perangkat lunak', 'xii rekayasa perangkat lunak', '2011348', '2011349', 'Aghita Kezia Agustin', 'Anastasya Kurnia', 'Mencerdaskan siswa', 'fefe43bfb56d7437657dc76b5626af99.jpg', '');
-
 -- --------------------------------------------------------
 
 --
@@ -146,16 +138,6 @@ CREATE TABLE `tb_hasil_suara` (
   `id_pemilih` int(11) NOT NULL,
   `id_calon` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_hasil_suara`
---
-
-INSERT INTO `tb_hasil_suara` (`id_hasil`, `id_pemilih`, `id_calon`) VALUES
-(1, 9, 1),
-(2, 1, 2),
-(3, 275, 1),
-(4, 208, 2);
 
 -- --------------------------------------------------------
 
@@ -568,7 +550,7 @@ CREATE TABLE `tb_pemilihan` (
 --
 
 INSERT INTO `tb_pemilihan` (`id_pemilihan`, `mulai_pemilihan`, `akhir_pemilihan`, `status`) VALUES
-(1, 1666141123, 1666141270, 'nonaktif');
+(1, 1666259353, 1666341122, 'nonaktif');
 
 --
 -- Indexes for dumped tables
@@ -628,7 +610,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_calon`
 --
 ALTER TABLE `tb_calon`
-  MODIFY `id_calon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_calon` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_fakultas`
@@ -640,7 +622,7 @@ ALTER TABLE `tb_fakultas`
 -- AUTO_INCREMENT for table `tb_hasil_suara`
 --
 ALTER TABLE `tb_hasil_suara`
-  MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_pemilih`

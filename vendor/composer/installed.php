@@ -1,22 +1,31 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4de5c658b95d4c83c4d99e8d66fb2d3cd587885f',
+        'reference' => '016ff2c9bf9a27ffbb0c4da1dcb717ffe6643904',
         'name' => 'codeigniter/framework',
         'dev' => true,
     ),
     'versions' => array(
+        'ckeditor/ckeditor' => array(
+            'pretty_version' => '4.20.0',
+            'version' => '4.20.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ckeditor/ckeditor',
+            'aliases' => array(),
+            'reference' => 'f7495b8148ec55a1a01e41bbeab97b4d73d5a6f6',
+            'dev_requirement' => false,
+        ),
         'codeigniter/framework' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4de5c658b95d4c83c4d99e8d66fb2d3cd587885f',
+            'reference' => '016ff2c9bf9a27ffbb0c4da1dcb717ffe6643904',
             'dev_requirement' => false,
         ),
         'doctrine/instantiator' => array(

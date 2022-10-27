@@ -1,3 +1,4 @@
+<script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 <script>
 function preview_foto(event) {
 
@@ -10,7 +11,7 @@ function preview_foto(event) {
 }
 </script>
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Tambah Data Calon OSIS</h1>
+<h1 class="h3 mb-2 text-gray-800">Tambah Data Calon</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -32,32 +33,20 @@ function preview_foto(event) {
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="presma">NIM Calon Ketua OSIS</label>
-                                <!-- <input type="text" class="form-control" id="presma" name="nim_calon_presma" autofocus
-                                    required> -->
-                                    <select class="form-control" name="nim_calon_presma" autofocus required>
-                                    <?php foreach($pemilih as $p): ?>
-                                    <option value="<?= $p['nim']; ?>"><?= ucwords($p['nim']); ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <label for="presma">NIM Calon Ketua</label>
+                                <input type="text" class="form-control" id="presma" name="nim_calon_presma" autofocus
+                                    required>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="presma">Nama Calon Ketua OSIS</label>
-                        <!-- <input type="text" class="form-control" id="presma" name="calon_presma" autofocus required> -->
-                        <select class="form-control" name="calon_presma" autofocus required>
-                                    <?php foreach($pemilih as $p): ?>
-                                    <option value="<?= $p['nama']; ?>"><?= ucwords($p['nama']); ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
+                        <label for="presma">Nama Calon Ketua</label>
+                        <input type="text" class="form-control" id="presma" name="calon_presma" autofocus required>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Jurusan Calon Wakil Ketua OSIS</label>
+                                <label>Fakultas Calon Wakil Ketua/label>
                                 <select class="form-control" name="fakultas_calon_wapresma">
                                     <?php foreach($fakultas as $f): ?>
                                     <option value="<?= $f['nama_fakultas']; ?>"><?= ucwords($f['nama_fakultas']); ?>
@@ -68,39 +57,30 @@ function preview_foto(event) {
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="presma">NIM Calon Wakil Ketua OSIS</label>
-                                <!-- <input type="text" class="form-control" id="presma" name="nim_calon_wapresma" autofocus
-                                    required> -->
-                                    <select class="form-control" name="nim_calon_presma" autofocus required>
-                                    <?php foreach($pemilih as $p): ?>
-                                    <option value="<?= $p['nim']; ?>"><?= ucwords($p['nim']); ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <label for="presma">NIM Calon Wakil Ketua</label>
+                                <input type="text" class="form-control" id="presma" name="nim_calon_wapresma" autofocus
+                                    required>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="wapresma">Nama Calon Wakil Ketua OSIS</label>
-                        <!-- <input type="text" class="form-control" id="wapresma" name="calon_wakil_presma" required> -->
-                        <select class="form-control" name="nim_calon_presma" autofocus required>
-                                    <?php foreach($pemilih as $p): ?>
-                                    <option value="<?= $p['nama']; ?>"><?= ucwords($p['nama']); ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
+                        <label for="wapresma">Nama Calon Wakil Ketua</label>
+                        <input type="text" class="form-control" id="wapresma" name="calon_wakil_presma" required>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div style="border:5px solid black;height:270px;">
-                        <img src="<?=base_url('assets/img/');?>osis.jpg" alt="Foto Calon" width="100%"
-                            height="260" id="viewfoto">
+                    <div style="border:1px solid;height:300px;">
+                        <img src="<?=base_url('assets/img/');?>calon_default.jpg" alt="Foto Calon" width="100%"
+                            height="297" id="viewfoto">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="visi_misi">Visi Misi</label>
-                        <textarea class="form-control" id="visi_misi" rows="3" name="visi_misi" required></textarea>
+                        <textarea class="form-control" name="visi_misi" rows="10" cols="10" required></textarea>
+                        <script>
+                           CKEDITOR.replace('visi_misi');
+                        </script>
                     </div>
                     <div class="form-group">
                         <label for="foto_calon">Foto Calon</label>
@@ -124,3 +104,9 @@ function preview_foto(event) {
         </form>
     </div>
 </div>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+			<script>
+				var quill = new Quill('#visi_misi', {
+					theme: 'snow'
+				});
+			</script>
